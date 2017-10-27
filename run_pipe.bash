@@ -4,6 +4,9 @@ input_dir=$1
 output_dir=$2
 scripts_dir=/usr/local/bin/nLogReporter
 
+# if output_dir doesn't exist - then, create it
+mkdir -p ${output_dir}
+
 # 1) generalLog and counter.txt
 for dir in $(find $input_dir -mindepth 1 -maxdepth 1 -type d); do 
   unzip -p -P fixmeplease ${dir}/*2017*.zip generalLog.txt | iconv -f UTF-16 1>${output_dir}/$(basename ${dir}).generalLog.txt; 
