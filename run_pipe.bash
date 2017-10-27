@@ -6,8 +6,8 @@ scripts_dir=/usr/local/bin/nLogReporter
 
 # 1) generalLog and counter.txt
 for dir in $(find $input_dir -mindepth 1 -maxdepth 1 -type d); do 
-  unzip -p -P fixmeplease ${dir}/*07-25_*.zip generalLog.txt | iconv -f UTF-16 1>${output_dir}/$(basename ${dir}).generalLog.txt; 
-  unzip -p -P fixmeplease ${dir}/*07-25_*.zip countersForAllTestTypesDeterminations.txt | iconv -f UTF-16 1>${output_dir}/$(basename ${dir}).counters.txt; 
+  unzip -p -P fixmeplease ${dir}/*2017*.zip generalLog.txt | iconv -f UTF-16 1>${output_dir}/$(basename ${dir}).generalLog.txt; 
+  unzip -p -P fixmeplease ${dir}/*2017*.zip countersForAllTestTypesDeterminations.txt | iconv -f UTF-16 1>${output_dir}/$(basename ${dir}).counters.txt; 
 done
 
 # 2) Get an aggregate report for counters
