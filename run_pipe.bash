@@ -49,3 +49,4 @@ for file in $(find ${output_dir} -mindepth 1 -maxdepth 1 -type f -name "*hard_*"
   cat $file | perl -e 'my $token = $ARGV[0]; my( $name, $one, $two ) = ( $token =~ /(\w+)\.(\w+)_(\w+)\./); while( my $line = <STDIN>) { chomp $line; my @info = split( "\t", $line ); print join("\t", ( @info, ($name, $one, $two))), "\n"; }' $(basename $file); 
 done 1>${output_dir}/all_failures.txt
 
+find ${output_dir} -mindepth 1 -maxdepth 1 -type f ! -name "all_failures.txt" -exec rm {} \;
